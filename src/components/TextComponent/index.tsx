@@ -9,8 +9,10 @@ type TextProps = {
 const Text = ({text, searchText}:TextProps) => {
     
     function addStyleFendedText(str:string, searchStr:string): string | any{
+        
         if(searchStr.length > 0 && str.includes(searchStr)){
             let strArr = str.split(`${searchStr}`)
+            
             let strWithSpan = strArr.map((el, i) => {
                 if(i < strArr.length-1){
                     return <span key={i}><span>{el}</span><span className={style.search}>{searchStr}</span></span>
@@ -18,6 +20,7 @@ const Text = ({text, searchText}:TextProps) => {
                     return <span key={i}>{el}</span>
                 }
             })
+            
             return(
                 <>{strWithSpan}</>
             )

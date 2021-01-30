@@ -1,24 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 type InputProps = {
     placeholder: string,
     id: string,
     label: string,
+    value:string,
     onChangeValue: (s:string) => void
 }
 
-const Input = ({placeholder, id, label, onChangeValue}:InputProps) => {
-    const [valueInput, setValueInput] = useState('')
+const Input = ({placeholder, id, label, onChangeValue, value}:InputProps) => {
     const changeValueInput = (e:React.ChangeEvent<HTMLInputElement>) => {
-        setValueInput(e.target.value)
-    }
-    const setText = (e:React.ChangeEvent<HTMLInputElement>) => {
         onChangeValue(e.target.value)
     }
+
     return(
         <div>
             <label htmlFor={id}>{label}</label>
-            <input type="text" id={id} placeholder={placeholder} onChange={(e)=>{changeValueInput(e); setText(e)}} value={valueInput}/>
+            <input type="text" id={id} placeholder={placeholder} onChange={changeValueInput} value={value}/>
         </div>
     )
 }
