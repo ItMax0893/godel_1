@@ -5,10 +5,11 @@ type InputProps = {
     id: string,
     label: string,
     value:string,
-    onChangeValue: (s:string) => void
+    onChangeValue: (s:string) => void,
 }
 
 const Input = ({placeholder, id, label, onChangeValue, value}:InputProps) => {
+    
     const changeValueInput = (e:React.ChangeEvent<HTMLInputElement>) => {
         onChangeValue(e.target.value)
     }
